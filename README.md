@@ -1,4 +1,4 @@
-hes-jurisdiction-audit, a quick and dirty utility for helping hot girlfriends check their shelterluv data vs GIS data from Hamilton County, TN
+hes-jurisdiction-audit, a quick and dirty utility to audit jurisdiction tags in shelterluv intake data vs GIS records from Hamilton County, TN
 
 The application (and most of the logic) exists in /src/hes-jurisdiction-audit.py
 
