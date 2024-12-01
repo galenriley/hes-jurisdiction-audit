@@ -1,0 +1,6 @@
+.venv
+/src/__pycache__
+
+/data/*
+!/data/sample/
+!/data/GIS data.csv

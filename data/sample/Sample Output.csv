@@ -1,0 +1,6 @@
+id,source_file,source_row,animal_id,animal_name,intake_date,intake_type,intake_subtype,intake_transfer_from,source_jurisdiction,source_address,zip,normalized_address,stripped_address,match_gis_id,computed_jurisdiction,match_type,zip_suggestion,mismatch
+1,Sample Intakes.csv,2,HES-A-111,Sample Stray,12/01/2024,Stray In,Public Drop Off,—,Soddy Daisy,10116 Card Road,37379,10116 CARD RD,10116 CARD,2,Soddy Daisy,Normalized,,
+2,Sample Intakes.csv,3,HES-A-222,Sample Surrender,12/01/2024,Owner Surrender,Too Many Animals,—,Unincorporated Hamilton County,1 Young Road,37379,1 YOUNG RD,1 YOUNG,1,Unincorporated Hamilton County,Normalized,,
+3,Sample Intakes.csv,4,HES-A-333,Sample Transfer,12/01/2024,Transfer In,HES Animal From Other Agency,McKamey Animal Center,—,4500 N Access Rd,37415,4500 N ACCESS RD,4500 N ACCESS,3,Chattanooga (MAC Service Region),Normalized,,X
+4,Sample Intakes.csv,5,HES-A-444,Sample Return,12/01/2024,Adoption Return,Health of Animal,—,Chattanooga (MAC Service Region),101 East 11th Street,37402,101 E 11TH ST,101 E 11TH,4,Chattanooga (MAC Service Region),Normalized,,
+5,Sample Intakes.csv,6,HES-A-555,Sample Wrong Address,12/01/2024,Stray In,Public Drop Off,—,Unincorporated Hamilton County,500 City Hall Dr,30742,500 CITY HALL DR,500 CITY HALL,-1,Outside Area,Unrecognized Zip: 30742,,X
