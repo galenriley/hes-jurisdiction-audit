@@ -12,6 +12,7 @@ import hamilton_address
 intake_paths = constants.INTAKE_PATHS
 gis_path = constants.GIS_PATH
 db_path = constants.DB_PATH
+output_path = constants.OUTPUT_PATH
 
 def print_intro():
     print()
@@ -22,6 +23,7 @@ def print_intro():
     print("intake_paths=" + str(intake_paths))
     print("gis_path=" + str(gis_path))
     print("db_path=" + str(db_path))
+    print("output_path=" + str(output_path))
     print()
 
 def check_database():
@@ -86,8 +88,8 @@ def show_menu():
     print("5. Recompute normalization for GIS data")
     print("6. Recompute normalization for both Intake and GIS data")
     print("7. Process the data!")
-    print("8. Clear database, import both Intake and GIS data, and process the data")
-    print("9. Export the data!")
+    print("8. Export the data!")
+    print("9. Clear database, import both Intake and GIS data, process the data, and export the data")
     print("T. Test stuff!")
     print("X. Exit")
     print(">> ", end="")
@@ -131,6 +133,10 @@ def show_menu():
             runtime = time.time() - start_time
             print("process_data() runtime " + str(datetime.timedelta(seconds=runtime)))
         case "8":
+            write_output()
+            runtime = time.time() - start_time
+            print("write_output() runtime " + str(datetime.timedelta(seconds=runtime)))
+        case "9":
             import_intakes(intake_paths, db_path)
             runtime = time.time() - start_time
             print("import_intakes() runtime " + str(datetime.timedelta(seconds=runtime)))
@@ -140,6 +146,9 @@ def show_menu():
             process_data()
             runtime = time.time() - start_time
             print("process_data() runtime " + str(datetime.timedelta(seconds=runtime)))
+            write_output()
+            runtime = time.time() - start_time
+            print("write_output() runtime " + str(datetime.timedelta(seconds=runtime)))
         case "T":
             test_stuff()
         case "X":
@@ -398,6 +407,37 @@ def process_data():
     outer_cursor.close()
     connection.close()
     print("process_data() Complete, count=" + str(recordCount))
+
+def write_output():
+    if os.path.isfile(output_path):
+        print("Deleting existing " + output_path)
+        os.remove(output_path)
+
+    print("Connecting to " + db_path)
+    connection = sqlite3.connect(db_path)
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM hes_intake')
+
+    
+    with open(output_path, mode="w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+
+        # Write headers
+        writer.writerow([i[0] for i in cursor.description])
+
+        recordCount = 0
+        for row in cursor:
+            writer.writerow(row)
+            recordCount += 1
+
+            if (recordCount % constants.OUTPUT_WRITE_QTY == 0):
+                print("Processed " + str(recordCount) + " rows so far...")
+
+    # Close the database connection
+    connection.close()
+    print("Output saved to: " + output_path)
+    print("write_output() Complete, count=" + str(recordCount)) 
 
 print_intro()
 check_database()
