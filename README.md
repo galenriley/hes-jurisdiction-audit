@@ -19,3 +19,5 @@ GIS_PATH = "data/sample/Sample GIS.csv"
 DB_PATH = "data/sample/hes_intake_jurisdiction - sample.sqlite"
 #"""
 ```
+
+Address normalization mostly from https://github.com/GreenBuildingRegistry/usaddress-scourgify
