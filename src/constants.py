@@ -8,6 +8,7 @@ INTAKE_PATHS = ["data/sample/Sample Intakes.csv"]
 GIS_PATH = "data/sample/Sample GIS.csv"
 DB_PATH = "data/sample/hes_intake_jurisdiction - sample.sqlite"
 OUTPUT_PATH = "data/sample/Sample Output.csv"
+#"""
 
 VERBOSE = False
 
