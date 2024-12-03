@@ -17,9 +17,9 @@ GIS_NOT_FOUND = "GIS Not Found"
 GIS_DUPLICATE = "Duplicate GIS Match"
 OUTSIDE_AREA = "Outside Area"
 MATCH_NORMALIZED = "Normalized"
-MATCH_NORMALIZED_WITHOUT_ZIP = "Normalized without Zip"
+MATCH_NORMALIZED_WITHOUT_ZIP = "Normalized without Zip" # unused
 MATCH_STRIPPED = "Stripped"
-MATCH_STRIPPED_WITHOUT_ZIP = "Stripped without Zip"
+MATCH_STRIPPED_WITHOUT_ZIP = "Stripped without Zip" # unused
 
 INTAKE_INSERT_QTY = 1000
 INTAKE_SEARCH_QTY = 1000
